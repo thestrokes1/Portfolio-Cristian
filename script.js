@@ -390,6 +390,37 @@ items.forEach((item, index) => {
             event.target.reset();
         }
 
+        document.getElementById("contactForm").addEventListener("submit", async function(event) {
+    event.preventDefault(); // prevent default redirect
+
+    const form = event.target;
+    const status = document.getElementById("form-status");
+
+    // send data to Formspree
+    const data = new FormData(form);
+    try {
+        let response = await fetch("https://formspree.io/f/mblajpbe", {
+            method: "POST",
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            status.textContent = "✅ Tu mensaje fue enviado correctamente!";
+            status.style.color = "green";
+            form.reset(); // clears all fields
+            // optional: hide message after 5s
+            setTimeout(() => status.textContent = "", 5000);
+        } else {
+            status.textContent = "❌ Error al enviar el mensaje.";
+            status.style.color = "red";
+        }
+    } catch (error) {
+        status.textContent = "⚠️ Error de conexión.";
+        status.style.color = "red";
+    }
+});
+
         // Initialize
         updateCoverflow();
         container.focus();
