@@ -289,25 +289,28 @@
                 </div>
                 
                 <div class="contact-form-section">
-                    <form class="contact-form" action="https://formspree.io/f/mblajpbe" method="POST">
-                        <div class="form-group">
-                            <label for="name">Tu nombre</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Contacto Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Asunto</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Mensaje</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Enviar Mensaje</button>
-                    </form>
+      <form class="contact-form" id="contactForm">
+    <div class="form-group">
+        <label for="name">Tu nombre</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Contacto Email</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="subject">Asunto</label>
+        <input type="text" id="subject" name="subject" required>
+    </div>
+    <div class="form-group">
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" required></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Enviar Mensaje</button>
+    <p id="form-status"></p> <!-- aquí aparecerá un mensaje de éxito/error -->
+</form>
+
+
                 </div>
             </div>
         </div>
@@ -334,4 +337,36 @@
 <script src="script.js"></script>
 
 </body>
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function(event) {
+    event.preventDefault(); // evita el redireccionamiento
+
+    const form = event.target;
+    const status = document.getElementById("form-status");
+
+    const data = new FormData(form);
+
+    try {
+        let response = await fetch("https://formspree.io/f/mblajpbe", {
+            method: "POST",
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            status.textContent = "✅ Tu mensaje fue enviado correctamente!";
+            status.style.color = "green";
+            form.reset(); // limpia los campos
+            setTimeout(() => status.textContent = "", 5000); // borra mensaje luego de 5s
+        } else {
+            status.textContent = "❌ Hubo un error al enviar el mensaje.";
+            status.style.color = "red";
+        }
+    } catch (error) {
+        status.textContent = "⚠️ Error de conexión.";
+        status.style.color = "red";
+    }
+});
+</script>
+
 </html>
