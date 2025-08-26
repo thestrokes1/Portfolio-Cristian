@@ -40,37 +40,24 @@
                 mainMenu.classList.remove('active');
             }
         });
-items.forEach((item, index) => {
-    item.addEventListener('click', () => {
-        const projectLink = imageData[index].link;
-        if (projectLink) {
-            window.open(projectLink, "_blank"); // opens project in new tab
-        } else {
-            goToIndex(index); // normal coverflow behavior
-        }
-    });
-});
+
         // Image data with titles and descriptions
         const imageData = [
             {
                 title: "Rock Paper Scissors",
-                description: "Jugador vs Maquina",
-                link: "Project1/RockPaperScissors/index.html"
+                description: "Jugador vs Maquina"
             },
             {
                 title: "RPG - Dragon",
-                description: "Derrota al Dragon",
-                link: "Project4/RPG-Dragon/index.html"
+                description: "Derrota al Dragon"
             },
             {
                 title: "Tic Tac Toe",
-                description: "Juego de tres en raya",
-                link: "Project2/Webtictactoe/index.html"
+                description: "Juego de tres en raya"
             },
             {
-                title: "Hoja de Resgistro",
-                description: "Registrarse",
-                link: "Project3/Make-web/index.html"
+                title: "Ocean Sunset",
+                description: "Golden hour over endless ocean waves"
             },
             {
                 title: "Desert Dunes",
