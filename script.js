@@ -63,7 +63,8 @@ items.forEach((item, index) => {
             },
             {
                 title: "Tic Tac Toe",
-                description: "Juego de tres en raya"
+                description: "Juego de tres en raya",
+                link: "Project2/Webtictactoe/index.html"
             },
             {
                 title: "Ocean Sunset",
