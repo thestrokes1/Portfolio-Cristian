@@ -40,12 +40,22 @@
                 mainMenu.classList.remove('active');
             }
         });
-
+items.forEach((item, index) => {
+    item.addEventListener('click', () => {
+        const projectLink = imageData[index].link;
+        if (projectLink) {
+            window.open(projectLink, "_blank"); // opens project in new tab
+        } else {
+            goToIndex(index); // normal coverflow behavior
+        }
+    });
+});
         // Image data with titles and descriptions
         const imageData = [
             {
                 title: "Rock Paper Scissors",
-                description: "Jugador vs Maquina"
+                description: "Jugador vs Maquina",
+                link: "Project1/RockPaperScissors/index.html"
             },
             {
                 title: "RPG - Dragon",

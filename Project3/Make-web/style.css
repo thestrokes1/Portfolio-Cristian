@@ -1,0 +1,242 @@
+body {
+  background-image: url('BlueWall.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+.login-link {
+  position: absolute;
+  font-weight: bold;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #0077cc;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.login-link:hover {
+  background-color: #555;
+}
+
+
+  h1, p {
+    margin: 1em auto;
+    text-align: center;
+    color:rgb(34, 248, 248);
+    text-decoration: underline;
+  }
+  
+  form {
+    width: 60vw;
+    max-width: 500px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding-bottom: 2em;
+  }
+  
+  fieldset {
+    color: rgb(155, 5, 5);
+    border: none;
+    padding: 2rem 0;
+    border-bottom: 3px solid #3b3b4f;
+  }
+  
+  fieldset:last-of-type {
+    border-bottom: none;
+  }
+  
+  label {
+    color: rgb(155, 5, 5);
+    display: block;
+    margin: 0.5rem 0;
+  }
+  label.valid {
+    color: green;
+  }
+  
+  input,
+  textarea,
+  select {
+    color: #0a0a23;
+    margin: 10px 0 0 0;
+    width: 100%;
+    min-height: 2em;
+  }
+  
+  input, textarea {
+    background-color: #0a0a23;
+    border: 1px solid #0a0a23;
+    color: #ffffff;
+  }
+  
+  .inline {
+    width: unset;
+    margin: 0 0.5em 0 0;
+    vertical-align: middle;
+  }
+  
+  input[type="submit"] {
+    display: block;
+    width: 60%;
+    margin: 1em auto;
+    height: 2em;
+    font-size: 1.1rem;
+    background-color: #3b3b4f;
+    border-color: white;
+    min-width: 300px;
+    
+  }
+  
+  input[type="file"] {
+    padding: 1px 2px;
+  }
+  
+  a {
+    color: #dfdfe2;
+  }
+
+  
+
+  input[type="checkbox"], input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #999;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    outline: none;
+    background-color: #fff;
+    margin-right: 10px;
+  }
+  
+  input[type="checkbox"]:checked, input[type="radio"]:checked {
+    background-color: rgb(34, 248, 248);
+    border-color: rgb(34, 248, 248);
+  }
+  
+  input[type="checkbox"]:checked::after, input[type="radio"]:checked::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.3s ease;
+  }
+  
+  input[type="checkbox"]:checked::before, input[type="radio"]:checked::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(3, 169, 244, 0.2);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.5s ease;
+  }
+  
+  input[type="checkbox"]:checked::after {
+    animation: heartbeat 1s ease-out infinite;
+  }
+  
+  input[type="radio"]:checked::before {
+    animation: heartbeat 1s ease-out infinite;
+  }
+  
+  @keyframes heartbeat {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(3.0);
+      opacity: 0;
+    }
+  }
+  
+  .home-link {
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #0077cc;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .home-link:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 20px 20px 0;
+    border-color: transparent #0077cc transparent transparent;
+    transition: all 0.2s ease-out;
+  }
+  
+  .home-link:hover:before {
+    top: -20px;
+    left: -20px;
+    width: 0;
+    height: 0;
+    border-width: 0 40px 40px 0;
+  }
+  
+  .home-link-text {
+    position: relative;
+    z-index: 1;
+    transition: all 0.2s ease-out;
+  }
+  
+  .home-link:hover .home-link-text {
+    transform: translateY(-5px);
+  }
+  
+
+  .home-link {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+    z-index: 100;
+  }
+  
+  .login-link {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+    z-index: 100;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .home-link,
+    .login-link {
+      font-size: 8px;
+      }
+    }
+
