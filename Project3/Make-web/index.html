@@ -1,201 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Portfolio Registration Form</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* ---- Body & Background ---- */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #3b3b4f, #1a1a2e);
-      color: #ffffff;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<title>Portfolio Registration Form</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #3b3b4f, #1a1a2e);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+form {
+  background-color: rgba(0,0,0,0.6);
+  max-width: 500px;
+  margin: 5% auto;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,255,255,0.3);
+}
+h1,p { text-align:center; color:#00f8f8; margin-bottom:1rem; }
+fieldset { border:none; margin-bottom:1.5rem; padding:0; }
+label { display:block; margin-bottom:0.5rem; color:#d3d3d3; font-size:0.95rem; }
+input, select, textarea { width:100%; padding:0.7rem; margin-bottom:1rem; border-radius:10px; border:none; outline:none; font-size:1rem; background-color: rgba(255,255,255,0.1); color:#fff; transition:0.3s ease; }
+input:focus, select:focus, textarea:focus { background-color: rgba(255,255,255,0.2); box-shadow: 0 0 5px #00f8f8; }
+input[type="submit"] { background-color:#00f8f8; color:#1a1a2e; font-weight:bold; cursor:pointer; }
+input[type="submit"]:hover { background-color:#00cccc; }
+input[type="checkbox"], input[type="radio"] { width:auto; margin-right:10px; vertical-align:middle; accent-color:#00f8f8; }
+#form-status { text-align:center; font-weight:bold; margin-top:1rem; }
 
-    /* ---- Links ---- */
-    .home-link, .login-link {
-      position: fixed;
-      padding: 10px 20px;
-      font-weight: bold;
-      border-radius: 5px;
-      text-decoration: none;
-      z-index: 100;
-      transition: all 0.3s ease;
-      background-color: #0077cc;
-      color: #fff;
-    }
-    .home-link { top: 10px; left: 10px; }
-    .login-link { top: 10px; right: 10px; }
-    .home-link:hover, .login-link:hover { background-color: #00aaff; }
+/* Login button top right */
+.login-link {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: #0077cc;
+  color: #fff;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+.login-link:hover { background-color: #00aaff; }
 
-    /* ---- Form Container ---- */
-    form {
-      background-color: rgba(0,0,0,0.6);
-      max-width: 500px;
-      margin: 5% auto;
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0,255,255,0.3);
-    }
-
-    h1, p {
-      text-align: center;
-      color: #00f8f8;
-      margin-bottom: 1rem;
-    }
-
-    fieldset {
-      border: none;
-      margin-bottom: 1.5rem;
-      padding: 0;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: #d3d3d3;
-      font-size: 0.95rem;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 0.7rem;
-      margin-bottom: 1rem;
-      border-radius: 10px;
-      border: none;
-      outline: none;
-      font-size: 1rem;
-      background-color: rgba(255,255,255,0.1);
-      color: #fff;
-      transition: 0.3s ease;
-    }
-    input:focus, textarea:focus, select:focus {
-      background-color: rgba(255,255,255,0.2);
-      box-shadow: 0 0 5px #00f8f8;
-    }
-
-    input[type="submit"] {
-      background-color: #00f8f8;
-      color: #1a1a2e;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-    input[type="submit"]:hover {
-      background-color: #00cccc;
-    }
-
-    input[type="checkbox"], input[type="radio"] {
-      width: auto;
-      margin-right: 10px;
-      vertical-align: middle;
-      accent-color: #00f8f8;
-    }
-
-    #form-status {
-      text-align: center;
-      font-weight: bold;
-      margin-top: 1rem;
-    }
-
-    @media only screen and (max-width: 600px) {
-      form { width: 90%; padding: 1rem; }
-    }
-  </style>
+@media only screen and (max-width:600px){form{width:90%; padding:1rem;} .login-link{font-size:12px; padding:5px 10px;}}
+</style>
 </head>
 <body>
 
-<a href="/" class="home-link">Home</a>
 <a href="login.html" class="login-link">Login</a>
-
 
 <h1>Register to Portfolio</h1>
 <p>Fill out the form below to join our community!</p>
 
-<form id="registrationForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<form id="registrationForm">
   <fieldset>
-    <label for="first-name">First Name
-      <input id="first-name" name="first-name" type="text" required />
-    </label>
-    <label for="last-name">Last Name
-      <input id="last-name" name="last-name" type="text" required />
-    </label>
-    <label for="email">Email
-      <input id="email" name="email" type="email" required />
-    </label>
-    <label for="new-password">Password (min 8 characters)
-      <input id="new-password" name="new-password" type="password" pattern="[a-z0-5]{8,}" required />
-    </label>
+    <label>First Name <input id="first-name" type="text" required></label>
+    <label>Last Name <input id="last-name" type="text" required></label>
+    <label>Email <input id="email" type="email" required></label>
+    <label>Password (min 8 chars) <input id="password" type="password" pattern=".{8,}" required></label>
   </fieldset>
 
   <fieldset>
-    <label for="age">Age (18+)
-      <input id="age" type="number" name="age" min="18" max="120" />
-    </label>
-    <label for="referrer">How did you hear about us?
-      <select id="referrer" name="referrer">
+    <label>Birthday <input id="birthday" type="date" required></label>
+    <label>How did you hear about us?
+      <select id="referrer" required>
         <option value="">Select one</option>
-        <option value="TikTok">TikTok</option>
-        <option value="YouTube">YouTube</option>
-        <option value="Instagram">Instagram</option>
-        <option value="Other">Other</option>
+        <option value="TikTok" style="color:black;">TikTok</option>
+        <option value="YouTube" style="color:black;">YouTube</option>
+        <option value="Instagram" style="color:black;">Instagram</option>
+        <option value="Other" style="color:black;">Other</option>
       </select>
     </label>
-    <label for="profile-picture">Profile Picture
-      <input id="profile-picture" type="file" name="file" />
-    </label>
-    <label for="bio">Bio
-      <textarea id="bio" name="bio" rows="3" placeholder="I love coding by the beach..."></textarea>
-    </label>
+    <label>Profile Picture <input type="file" id="profile-picture"></label>
+    <label>Bio <textarea id="bio" rows="3" placeholder="I love coding by the beach..."></textarea></label>
   </fieldset>
 
   <fieldset>
-    <label>
-      <input type="radio" name="account-type" value="Personal" /> Personal Account
-    </label>
-    <label>
-      <input type="radio" name="account-type" value="Business" /> Business Account
-    </label>
-    <label>
-      <input type="checkbox" name="terms-and-conditions" required /> I accept the 
-      <a href="https://www.freecodecamp.org/news/terms-of-service/" target="_blank">terms and conditions</a>
-    </label>
+    <label><input type="radio" name="account-type" value="Personal" required> Personal Account</label>
+    <label><input type="radio" name="account-type" value="Business" required> Business Account</label>
+    <label><input type="checkbox" id="terms" required> I accept the <a href="https://www.freecodecamp.org/news/terms-of-service/" target="_blank">terms</a></label>
   </fieldset>
 
-  <input type="submit" value="Submit" />
+  <input type="submit" value="Register">
   <p id="form-status"></p>
 </form>
 
 <script>
-  const form = document.getElementById("registrationForm");
-  const status = document.getElementById("form-status");
+const form = document.getElementById("registrationForm");
+const status = document.getElementById("form-status");
 
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
-    const formData = new FormData(form);
+form.addEventListener("submit", function(event){
+  event.preventDefault();
+  const firstName = document.getElementById("first-name").value;
+  const lastName = document.getElementById("last-name").value;
+  const email = document.getElementById("email").value.toLowerCase();
+  const password = document.getElementById("password").value;
+  const age = document.getElementById("age").value;
+  const birthday = document.getElementById("birthday").value;
+  const referrer = document.getElementById("referrer").value;
+  const bio = document.getElementById("bio").value;
 
-    fetch(form.action, {
-      method: form.method,
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if (response.ok) {
-        status.textContent = "✅ Registration successful!";
-        status.style.color = "limegreen";
-        form.reset();
-      } else {
-        response.json().then(data => {
-          status.textContent = data.errors.map(e => e.message).join(", ") || "❌ Error submitting form";
-          status.style.color = "red";
-        });
-      }
-    }).catch(() => {
-      status.textContent = "❌ Error submitting form";
-      status.style.color = "red";
-    });
-  });
+  // Save to localStorage
+  localStorage.setItem("registeredFirstName", firstName);
+  localStorage.setItem("registeredLastName", lastName);
+  localStorage.setItem("registeredEmail", email);
+  localStorage.setItem("registeredPassword", password);
+  localStorage.setItem("registeredAge", age);
+  localStorage.setItem("registeredBirthday", birthday);
+  localStorage.setItem("registeredReferrer", referrer);
+  localStorage.setItem("registeredBio", bio);
+
+  status.textContent = "✅ Registration successful! You can now login.";
+  status.style.color = "limegreen";
+  form.reset();
+});
 </script>
 
 </body>
