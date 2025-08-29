@@ -73,8 +73,9 @@ items.forEach((item, index) => {
                 link: "Project3/Make-web/index.html"
             },
             {
-                title: "Desert Dunes",
-                description: "Rolling sand dunes under vast blue skies"
+                title: "Music App",
+                description: "Aplicación de música",
+                link: "Project5/MusicApp/index.html"
             },
             {
                 title: "Starry Night",
