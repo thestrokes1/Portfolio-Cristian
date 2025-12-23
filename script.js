@@ -16,7 +16,7 @@
         const container = document.querySelector('.coverflow-container');
         const menuToggle = document.getElementById('menuToggle');
         const mainMenu = document.getElementById('mainMenu');
-        let currentIndex = 3;
+        let currentIndex = 5;
         let isAnimating = false;
 
         // Mobile menu toggle
@@ -78,12 +78,14 @@ items.forEach((item, index) => {
                 link: "Project5/MusicApp/index.html"
             },
             {
-                title: "Starry Night",
-                description: "Countless stars illuminating the dark sky"
+                title: "Symbolic Music",
+                description: "Music within Symbols",
+                link: "https://thestrokes1.github.io/ultimate-music-orchestra/music_page.html"
             },
             {
-                title: "Waterfall",
-                description: "Cascading water through lush green forest"
+                title: "Encuentra tu Escuela",
+                description: "Busca,Comunicate y Unite a una escuela",
+                link: "https://francobarreto.pythonanywhere.com/"
             }
         ];
 
