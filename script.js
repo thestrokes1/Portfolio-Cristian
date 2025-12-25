@@ -80,7 +80,7 @@ items.forEach((item, index) => {
             {
                 title: "Symbolic Music",
                 description: "Music within Symbols",
-                link: "https://thestrokes1.github.io/ultimate-music-orchestra/music_page.html"
+                link: "https://ultimate-music-orchestra-production.up.railway.app/"
             },
             {
                 title: "Encuentra tu Escuela",
