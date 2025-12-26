@@ -83,8 +83,8 @@ items.forEach((item, index) => {
                 link: "https://ultimate-music-orchestra-production.up.railway.app/"
             },
             {
-                title: "Encuentra tu Escuela",
-                description: "Busca,Comunicate y Unite a una escuela",
+                title: "Proyecto en Equipo",
+                description: "Busca,Comunicate y Unite a una escuela. (Mi deploy: https://thestrokes.pythonanywhere.com/)",
                 link: "https://francobarreto.pythonanywhere.com/"
             }
         ];
