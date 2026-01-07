@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Certificados | Cristian Vazquez</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+            background: #0d0d0d;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* ===== SECCIÓN CERTIFICADOS ===== */
+        .certificates {
+            max-width: 1100px;
+            margin: 80px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .certificates h1 {
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+        }
+
+        .certificate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .certificate-card {
+            background: #111;
+            border-radius: 12px;
+            padding: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .certificate-card:hover {
+            transform: scale(1.03);
+        }
+
+        .certificate-card img {
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .certificate-card h3 {
+            margin-top: 15px;
+            font-size: 1.1rem;
+        }
+
+        .certificate-card p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 40px;
+            text-decoration: none;
+            color: #fff;
+            border: 1px solid #555;
+            padding: 12px 25px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #222;
+        }
+
+        /* ===== MODAL ZOOM ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+            animation: zoomIn 0.3s ease;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<section class="certificates">
+    <h1>📜 Mis Certificados</h1>
+
+    <div class="certificate-grid">
+        <!-- CERTIFICADO 1 -->
+        <div class="certificate-card">
+            <img
+                src="images/Certificado Desarrollo Web.PNG"
+                alt="Certificado Desarrollo Web"
+                onclick="openModal(this.src)"
+            >
+            <h3>Desarrollo Web</h3>
+            <p>Curso Informatorio</p>
+        </div>
+
+        <!-- CERTIFICADO 2 -->
+        <div class="certificate-card">
+            <img
+                src="images/Certificado Web Desing.PNG"
+                alt="Certificado JavaScript"
+                onclick="openModal(this.src)"
+            >
+            <h3>Web Desing</h3>
+            <p>FreeCodeCamp</p>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-btn">← Volver al Portfolio</a>
+</section>
+
+<!-- ===== MODAL ===== -->
+<div id="imageModal" class="modal">
+    <span class="close-modal" onclick="closeModal()">✕</span>
+    <img class="modal-content" id="modalImage">
+</div>
+
+<!-- ===== SCRIPT ===== -->
+<script>
+function openModal(imageSrc) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+
+    modal.style.display = "flex";
+    modalImg.src = imageSrc;
+}
+
+function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+}
+
+/* Cerrar haciendo click fuera de la imagen */
+document.getElementById("imageModal").addEventListener("click", function(e) {
+    if (e.target === this) {
+        closeModal();
+    }
+});
+</script>
+
+</body>
+</html>
