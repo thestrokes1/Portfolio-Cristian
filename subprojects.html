@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Proyectos - Portfolio</title>
+    <style>
+        /* Reset y estilos base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+        }
+
+        /* Back to Home Link */
+        .back-link {
+            position: absolute;
+            top: 50%;
+            left: 2rem;
+            transform: translateY(-50%);
+            color: #4facfe;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(79, 172, 254, 0.3);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: rgba(79, 172, 254, 0.1);
+            border-color: #4facfe;
+        }
+
+        @media (max-width: 768px) {
+            .back-link {
+                position: static;
+                transform: none;
+                margin-bottom: 1rem;
+                display: inline-block;
+            }
+        }
+
+        /* Main container */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Section styles */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-header h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .section-number {
+            background: rgba(79, 172, 254, 0.2);
+            color: #4facfe;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* Project container */
+        .project-container {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .iframe-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .iframe-wrapper iframe {
+            width: 100%;
+            min-height: 500px;
+            border: none;
+            display: block;
+        }
+
+        /* Project description */
+        .project-description {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .project-description p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+
+        /* Placeholder styles */
+        .placeholder {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .placeholder h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .placeholder p {
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            section {
+                margin-bottom: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.2rem;
+            }
+
+            .iframe-wrapper iframe {
+                min-height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 1.5rem 1rem;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .section-number {
+                width: 32px;
+                height: 32px;
+                font-size: 0.85rem;
+            }
+
+            .iframe-wrapper iframe {
+                min-height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="https://thestrokes1.github.io/Portfolio-Cristian/" class="back-link">← Back to Home</a>
+        <h1>Mis Proyectos</h1>
+        <p>Explora las aplicaciones y juegos desarrollados</p>
+    </header>
+
+    <main>
+        <!-- Proyecto 1: Rock Paper Scissors -->
+        <section id="project1">
+            <div class="section-header">
+                <span class="section-number">1</span>
+                <h2>Bank App</h2>
+            </div>
+            <div class="project-container">
+                <div class="iframe-wrapper">
+                    <iframe src="Project7/Bankapp/index.html" title="Bank App" loading="lazy"></iframe>
+                </div>
+                <div class="project-description">
+                    <p>Bank App</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyecto 2: Web Tic Tac Toe -->
+        <section id="project2">
+            <div class="section-header">
+                <span class="section-number">2</span>
+                <h2>Web Tic Tac Toe</h2>
+            </div>
+            <div class="project-container">
+                <div class="iframe-wrapper">
+                    <iframe src="Project2/Webtictactoe/index.html" title="Tic Tac Toe Game" loading="lazy"></iframe>
+                </div>
+                <div class="project-description">
+                    <p>Juego de Tres en Raya.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyecto 3: Make Web -->
+        <section id="project3">
+            <div class="section-header">
+                <span class="section-number">3</span>
+                <h2>Make Web</h2>
+            </div>
+            <div class="project-container">
+                <div class="iframe-wrapper">
+                    <iframe src="Project3/Make-web/index.html" title="Make Web Application" loading="lazy"></iframe>
+                </div>
+                <div class="project-description">
+                    <p>Aplicación web con sistema de autenticación y diseño moderno responsivo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyecto 4: RPG Dragon -->
+        <section id="project4">
+            <div class="section-header">
+                <span class="section-number">4</span>
+                <h2>RPG Dragon</h2>
+            </div>
+            <div class="project-container">
+                <div class="iframe-wrapper">
+                    <iframe src="Project4/RPG-Dragon/index.html" title="RPG Dragon Game" loading="lazy"></iframe>
+                </div>
+                <div class="project-description">
+                    <p>Juego de rol ambientado en un mundo fantástico con dragones y aventuras.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================== -->
+        <!-- FUTUROS PROYECTOS (PLACEHOLDERS) -->
+        <!-- ======================================== -->
+
+        <!-- Proyecto 6: Drumms -->
+        
+        <section id="project6">
+            <div class="section-header">
+                <span class="section-number">6</span>
+                <h2>Drums Pad</h2>
+            </div>
+            <div class="project-container">
+                <div class="iframe-wrapper">
+                    <iframe src="Project6/Drums/index.html" title="Drums" loading="lazy"></iframe>
+                </div>
+                <div class="project-description">
+                    <p>Drums Pad Machine</p>
+                </div>
+            </div>
+        </section>
+        
+                <!-- Proyecto 7: Rock Paper Scissors -->
+        <section id="project1">
+            <div class="section-header">
+                <span class="section-number">7</span>
+                <h2>Rock Paper Scissors</h2>
+            </div>
+            <div class="project-container">
+                <div class="iframe-wrapper">
+                    <iframe src="Project1/RockPaperScissors/index.html" title="Rock Paper Scissors Game" loading="lazy"></iframe>
+                </div>
+                <div class="project-description">
+                    <p>Juego clásico de Piedra, Papel o Tijera contra la computadora con interfaz interactiva.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Proyecto 6: Future Project Placeholder -->
+        <!--
+        <section id="project6">
+            <div class="section-header">
+                <span class="section-number">6</span>
+                <h2>Nombre del Proyecto 6</h2>
+            </div>
+            <div class="project-container">
+                <div class="iframe-wrapper">
+                    <iframe src="Project6/NuevoProyecto/index.html" title="Nuevo Proyecto" loading="lazy"></iframe>
+                </div>
+                <div class="project-description">
+                    <p>Descripción del nuevo proyecto aquí.</p>
+                </div>
+            </div>
+        </section>
+        -->
+
+        <!-- Proyecto 7: Future Project Placeholder -->
+        <!--
+        <section id="project7">
+            <div class="section-header">
+                <span class="section-number">7</span>
+                <h2>Nombre del Proyecto 7</h2>
+            </div>
+            <div class="project-container">
+                <div class="iframe-wrapper">
+                    <iframe src="Project7/NuevoProyecto/index.html" title="Nuevo Proyecto" loading="lazy"></iframe>
+                </div>
+                <div class="project-description">
+                    <p>Descripción del nuevo proyecto aquí.</p>
+                </div>
+            </div>
+        </section>
+        -->
+
+        <!-- Proyecto 8: Future Project Placeholder -->
+        <!--
+        <section id="project8">
+            <div class="section-header">
+                <span class="section-number">8</span>
+                <h2>Nombre del Proyecto 8</h2>
+            </div>
+            <div class="project-container">
+                <div class="iframe-wrapper">
+                    <iframe src="Project8/NuevoProyecto/index.html" title="Nuevo Proyecto" loading="lazy"></iframe>
+                </div>
+                <div class="project-description">
+                    <p>Descripción del nuevo proyecto aquí.</p>
+                </div>
+            </div>
+        </section>
+        -->
+    </main>
+
+    <footer>
+        <p>Portfolio - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>
+

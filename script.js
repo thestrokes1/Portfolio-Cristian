@@ -53,24 +53,24 @@ items.forEach((item, index) => {
         // Image data with titles and descriptions
         const imageData = [
             {
-                title: "Rock Paper Scissors",
-                description: "Jugador vs Maquina",
-                link: "Project1/RockPaperScissors/index.html"
+                title: "Mini Projects",
+                description: "Various projects",
+                link: "subprojects.html"
             },
             {
-                title: "RPG - Dragon",
-                description: "Derrota al Dragon",
-                link: "Project4/RPG-Dragon/index.html"
+                title: "",
+                description: "",
+                link: ""
             },
             {
-                title: "Tic Tac Toe",
-                description: "Juego de tres en raya",
-                link: "Project2/Webtictactoe/index.html"
+                title: "",
+                description: "",
+                link: ""
             },
             {
-                title: "Hoja de Resgistro",
-                description: "Registrarse",
-                link: "Project3/Make-web/index.html"
+                title: "",
+                description: "",
+                link: ""
             },
             {
                 title: "Music App",

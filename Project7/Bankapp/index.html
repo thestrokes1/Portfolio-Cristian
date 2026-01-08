@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bank Digital</title>
+    <link rel="stylesheet" href="styles.css" />
+
+</head>
+
+<body>
+  <div class="app">
+    <div class="header">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <!-- App Icon -->
+        <svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#60a5fa" />
+              <stop offset="100%" stop-color="#2563eb" />
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="36" height="36" rx="10" fill="url(#g)" />
+          <g fill="#ffffff">
+            <rect x="9" y="9" width="6" height="6" rx="2" />
+            <rect x="21" y="9" width="6" height="6" rx="2" />
+            <rect x="9" y="21" width="6" height="6" rx="2" />
+            <rect x="21" y="21" width="6" height="6" rx="2" />
+          </g>
+        </svg>
+
+        <div>
+          <h1>Bank Digital</h1>
+          <span>Personal Checking Account</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="balance-card">
+      <p>Available Balance</p>
+      <div class="balance" id="balance">$0.00</div>
+    </div>
+
+    <div class="actions">
+      <input type="number" id="amount" placeholder="Enter amount" />
+      <button class="deposit" onclick="deposit()">Deposit</button>
+      <button class="withdraw" onclick="withdraw()">Withdraw</button>
+    </div>
+
+    <div class="transactions">
+      <h3>Recent Activity</h3>
+      <ul id="transactions"></ul>
+    </div>
+  </div>
+    </body>
+    <script src="script.js"></script>
+</html>
