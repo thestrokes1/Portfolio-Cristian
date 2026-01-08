@@ -10,6 +10,7 @@
             background: #0d0d0d;
             color: #fff;
             font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
         }
 
         /* ===== SECCIÓN CERTIFICADOS ===== */
@@ -27,7 +28,7 @@
 
         .certificate-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
 
@@ -85,8 +86,8 @@
         }
 
         .modal-content {
-            max-width: 80%;
-            max-height: 80%;
+            max-width: 90%;
+            max-height: 90%;
             border-radius: 10px;
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
             animation: zoomIn 0.3s ease;
@@ -109,6 +110,79 @@
             to {
                 transform: scale(1);
                 opacity: 1;
+            }
+        }
+
+        /* Responsive - Stack cards vertically on smaller screens */
+        @media (max-width: 900px) {
+            .certificate-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .certificates {
+                margin: 40px auto;
+                padding: 15px;
+            }
+
+            .certificates h1 {
+                margin-bottom: 25px;
+                font-size: 1.5rem;
+            }
+
+            .certificate-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .certificate-card {
+                padding: 20px;
+            }
+
+            .certificate-card img {
+                width: 100%;
+                max-width: 500px;
+            }
+
+            .certificate-card h3 {
+                margin-top: 12px;
+                font-size: 1.1rem;
+            }
+
+            .back-btn {
+                margin-top: 30px;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .certificates {
+                margin: 30px auto;
+                padding: 10px;
+            }
+
+            .certificates h1 {
+                margin-bottom: 20px;
+                font-size: 1.3rem;
+            }
+
+            .certificate-card {
+                padding: 15px;
+            }
+
+            .certificate-card h3 {
+                font-size: 1rem;
+            }
+
+            .certificate-card p {
+                font-size: 0.85rem;
+            }
+
+            .back-btn {
+                margin-top: 25px;
+                width: 100%;
+                max-width: 280px;
             }
         }
     </style>
