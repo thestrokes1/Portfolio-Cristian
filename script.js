@@ -54,21 +54,21 @@ items.forEach((item, index) => {
         const imageData = [
             {
                 title: "Mini Projects",
-                description: "Various projects",
+                description: "Multi Projects",
                 link: "subprojects.html"
             },
             {
-                title: "",
+                title: "Artist Landingpage",
+                description: "Space for Music & Art",
+                link: "https://music-landing-theta.vercel.app/"
+            },
+            {
+                title: "Incoming Project",
                 description: "",
                 link: ""
             },
             {
-                title: "",
-                description: "",
-                link: ""
-            },
-            {
-                title: "",
+                title: "Incoming Landingpage",
                 description: "",
                 link: ""
             },
