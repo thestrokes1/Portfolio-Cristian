@@ -63,9 +63,9 @@ items.forEach((item, index) => {
                 link: "https://music-landing-theta.vercel.app/"
             },
             {
-                title: "Incoming Project",
-                description: "",
-                link: ""
+                title: "Food App",
+                description: "Order Food",
+                link: "https://equilibrium-food.vercel.app/"
             },
             {
                 title: "Incoming Landingpage",
