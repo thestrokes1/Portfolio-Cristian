@@ -16,7 +16,7 @@
         const container = document.querySelector('.coverflow-container');
         const menuToggle = document.getElementById('menuToggle');
         const mainMenu = document.getElementById('mainMenu');
-        let currentIndex = 1;
+        let currentIndex = 3;
         let isAnimating = false;
 
         // Mobile menu toggle
