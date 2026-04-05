@@ -68,9 +68,9 @@ items.forEach((item, index) => {
                 link: "https://equilibrium-food.vercel.app/"
             },
             {
-                title: "Incoming Landingpage",
-                description: "",
-                link: ""
+                title: "E-Construccion ",
+                description: "Materiales de Construcción",
+                link: "https://equilibrium-construcion.vercel.app/"
             },
             {
                 title: "Music App",
