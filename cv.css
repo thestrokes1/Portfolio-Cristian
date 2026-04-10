@@ -1,3 +1,4 @@
+/* RESET Y GENERAL */
 * {
   box-sizing: border-box;
 }
@@ -8,7 +9,42 @@ body {
   margin: 0;
 }
 
-/* A4 */
+/* LOGICA MULTI-IDIOMA (NUEVO) */
+/* Por defecto ocultamos la versión inglesa si el body tiene la clase lang-es */
+body.lang-es [data-lang="en"] {
+  display: none !important;
+}
+
+/* Ocultamos la versión española si el body tiene la clase lang-en */
+body.lang-en [data-lang="es"] {
+  display: none !important;
+}
+
+/* BOTÓN SELECTOR (NUEVO) */
+.lang-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.btn-lang {
+  padding: 10px 20px;
+  background-color: #2f3e53;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.btn-lang:hover {
+  transform: scale(1.05);
+}
+
+/* A4 CONTAINER */
 .cv-page {
   width: 210mm;
   height: 297mm;
@@ -16,6 +52,7 @@ body {
   background: #fff;
   display: grid;
   grid-template-columns: 38% 62%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 /* IZQUIERDA */
@@ -43,6 +80,7 @@ body {
   border-bottom: 1px solid rgba(255,255,255,0.5);
   padding-bottom: 6px;
   margin-top: 22px;
+  text-transform: uppercase;
 }
 
 .left p {
@@ -60,7 +98,7 @@ body {
   font-size: 12px;
 }
 
-/* IDIOMAS */
+/* IDIOMAS BARS */
 .lang {
   margin-top: 10px;
 }
@@ -68,6 +106,7 @@ body {
 .bar {
   background: rgba(255,255,255,0.3);
   height: 5px;
+  margin-top: 4px;
 }
 
 .bar div {
@@ -102,6 +141,7 @@ header span {
   border-bottom: 1px solid #aaa;
   padding-bottom: 6px;
   margin-top: 26px;
+  text-transform: uppercase;
 }
 
 .right p, li {
@@ -128,6 +168,7 @@ header span {
 .item {
   display: flex;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .dot {
@@ -148,15 +189,16 @@ header span {
   position: absolute;
   left: 6px;
   top: 10px;
-  width: 22px;
+  width: 2px; /* Ajustado para que no tape el fondo */
   height: 22px;
-  background: #fff;
+  background: transparent;
   z-index: 1;
 }
 
 .date {
   font-size: 11px;
   color: #666;
+  display: block;
 }
 
 h4 {
@@ -171,7 +213,7 @@ h5 {
   color: #555;
 }
 
-/* SKILLS */
+/* SKILLS DOTS */
 .skills {
   margin-top: 12px;
 }
@@ -180,6 +222,7 @@ h5 {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+  align-items: center;
 }
 
 .dots span {
@@ -195,7 +238,7 @@ h5 {
   background: #5d6f86;
 }
 
-/* BOTÓN */
+/* BOTÓN DESCARGA */
 .download {
   text-align: center;
   margin: 30px 0 50px;
@@ -208,7 +251,9 @@ h5 {
   color: #fff;
   text-decoration: none;
   font-size: 16px;
+  border: none;
   border-radius: 6px;
+  cursor: pointer;
   transition: background 0.3s ease;
 }
 
@@ -216,4 +261,43 @@ h5 {
   background: #1f2a3a;
 }
 
+/* AJUSTES PARA IMPRESIÓN (PDF) */
+@media print {
+  body {
+    background: #fff;
+  }
+  .cv-page {
+    margin: 0;
+    box-shadow: none;
+  }
+  .lang-switcher, .download {
+    display: none !important;
+  }
+}
 
+/* NUEVA SECCIÓN: PROGRAMMING SKILLS */
+.skills-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.skill-column {
+  flex: 1;
+}
+
+.skill-column h4 {
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #1fa6a0; /* mismo acento que tu header */
+}
+
+.skill-column ul {
+  padding-left: 15px;
+  margin: 0;
+}
+
+.skill-column li {
+  font-size: 12.5px;
+  line-height: 1.5;
+}
