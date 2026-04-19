@@ -54,7 +54,7 @@ items.forEach((item, index) => {
         const imageData = [
             {
                 title: "Mini Projects",
-                description: "Multi Projects",
+                description: "Juegos, herramientas y mini proyectos web",
                 link: "subprojects.html"
             },
             {
@@ -73,19 +73,19 @@ items.forEach((item, index) => {
                 link: "https://equilibrium-construcion.vercel.app/"
             },
             {
-                title: "Music App",
-                description: "Aplicación de música",
-                link: "Project5/MusicApp/index.html"
+                title: "Próximo Proyecto",
+                description: "Próximamente...",
+                link: ""
             },
             {
                 title: "Symbolic Music",
                 description: "Music within Symbols",
-                link: "https://ultimate-music-orchestra-production.up.railway.app/"
+                link: "https://ultimate-music-orchestra.onrender.com/"
             },
             {
-                title: "Proyecto en Equipo",
-                description: "Busca,Comunicate y Unite a una escuela. (Mi deploy: https://thestrokes.pythonanywhere.com/)",
-                link: "https://francobarreto.pythonanywhere.com/"
+                title: "Próximo Proyecto",
+                description: "Próximamente...",
+                link: ""
             }
         ];
 
