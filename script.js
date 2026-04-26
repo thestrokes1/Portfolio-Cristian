@@ -83,9 +83,9 @@ items.forEach((item, index) => {
                 link: "https://ultimate-music-orchestra.onrender.com/"
             },
             {
-                title: "Próximo Proyecto",
-                description: "Próximamente...",
-                link: ""
+                title: "Radiance App",
+                description: "Fashion e-commerce Android — Kotlin + Firebase",
+                link: "radiance-app.html"
             }
         ];
 

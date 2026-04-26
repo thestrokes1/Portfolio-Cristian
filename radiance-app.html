@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radiance App — Portfolio de Cristian</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C9A84C;
+      --gold-dim: rgba(201,168,76,0.15);
+      --gold-border: rgba(201,168,76,0.25);
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --surface2: #1a1a1a;
+      --text: #f0f0f0;
+      --muted: rgba(255,255,255,0.45);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── Header ── */
+    header {
+      background: rgba(10,10,10,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .back-link {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--gold-border);
+      border-radius: 20px;
+      transition: all 0.2s;
+    }
+    .back-link:hover { background: var(--gold-dim); }
+
+    .header-title {
+      font-size: 0.85rem;
+      font-weight: 300;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 4rem 2rem 3rem;
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .app-icon {
+      width: 110px;
+      height: 110px;
+      border-radius: 24px;
+      border: 2px solid var(--gold-border);
+      box-shadow: 0 0 40px rgba(201,168,76,0.1);
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+
+    .hero-text { flex: 1; min-width: 260px; }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .badge-android { background: rgba(61,220,132,0.15); color: #3ddc84; border: 1px solid rgba(61,220,132,0.3); }
+    .badge-kotlin  { background: rgba(127,82,255,0.15); color: #a78bfa; border: 1px solid rgba(127,82,255,0.3); }
+    .badge-firebase{ background: rgba(255,196,0,0.12);  color: #fbbf24; border: 1px solid rgba(255,196,0,0.25); }
+    .badge-apk     { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold-border); }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.4rem;
+    }
+    .hero h1 span { color: var(--gold); }
+
+    .hero-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 1.4rem;
+      max-width: 480px;
+    }
+
+    .cta-buttons { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: #0a0a0a;
+      text-decoration: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+    .btn-gold:hover { background: #d4b05a; transform: translateY(-1px); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--text);
+      text-decoration: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.15);
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.05); }
+
+    /* ── Warning ── */
+    .warning-banner {
+      background: rgba(251,191,36,0.06);
+      border: 1px solid rgba(251,191,36,0.2);
+      border-radius: 10px;
+      padding: 0.9rem 1.3rem;
+      margin: 0 auto 0;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      font-size: 0.85rem;
+      color: rgba(251,191,36,0.85);
+    }
+    .warning-banner span:first-child { flex-shrink: 0; }
+
+    /* ── Main ── */
+    main { max-width: 960px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+    /* ── Screens showcase ── */
+    .screens-section { margin-bottom: 3rem; }
+    .section-title {
+      font-size: 0.72rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .screens-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .screen-card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 1.4rem 1.2rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .screen-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .screen-card:hover { border-color: var(--gold-border); transform: translateY(-2px); }
+    .screen-card:hover::before { opacity: 1; }
+
+    .screen-icon { font-size: 1.6rem; margin-bottom: 0.7rem; }
+    .screen-name { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.3rem; }
+    .screen-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── Screenshots placeholder ── */
+    .screenshots-section { margin-bottom: 3rem; }
+    .screenshot-placeholder {
+      background: var(--surface);
+      border: 1px dashed rgba(201,168,76,0.25);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      text-align: center;
+      color: var(--muted);
+    }
+    .screenshot-placeholder p { font-size: 0.85rem; margin-top: 0.5rem; }
+    .screenshot-placeholder strong { color: var(--gold); font-size: 1rem; display: block; margin-bottom: 0.3rem; }
+
+    /* ── Design palette ── */
+    .palette-row {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .color-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 0.6rem 1rem;
+    }
+    .color-swatch {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .color-info { line-height: 1.2; }
+    .color-name { font-size: 0.82rem; color: var(--text); }
+    .color-hex  { font-size: 0.72rem; color: var(--muted); font-family: monospace; }
+
+    /* ── Features ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .feature-item {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+    }
+    .feature-item .icon { font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .feature-item h4 { font-size: 0.88rem; color: var(--text); margin-bottom: 0.25rem; }
+    .feature-item p { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── Tech stack ── */
+    .tech-section { margin-bottom: 2.5rem; }
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tech-tag {
+      font-size: 0.78rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.65);
+      font-family: 'Consolas', monospace;
+    }
+
+    /* ── Install guide ── */
+    .install-card {
+      background: var(--surface);
+      border: 1px solid var(--gold-border);
+      border-radius: 16px;
+      padding: 2rem 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .install-card h3 { color: var(--gold); margin-bottom: 1rem; font-size: 1rem; }
+    .install-steps { display: flex; flex-direction: column; gap: 0.8rem; }
+    .install-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+    }
+    .step-num {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #0a0a0a;
+      font-weight: 700;
+      font-size: 0.78rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .step-text { font-size: 0.88rem; color: rgba(255,255,255,0.7); }
+    .step-text code {
+      background: rgba(255,255,255,0.07);
+      border-radius: 4px;
+      padding: 0 0.4em;
+      font-family: monospace;
+      font-size: 0.85em;
+      color: #fcd34d;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 2rem 1.5rem; gap: 1.5rem; }
+      .header-title { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="back-link">← Portfolio</a>
+  <span class="header-title">RADIANCE APP</span>
+  <div style="width:90px"></div>
+</header>
+
+<!-- Warning banner -->
+<div class="warning-banner" style="margin: 1.5rem auto; max-width:960px; padding: 0 1.5rem;">
+  <div class="warning-banner" style="margin:0; max-width:none;">
+    <span>⚡</span>
+    <span>
+      <strong style="color:#fbbf24; display:inline;">Versión gratuita de Firebase (Spark plan) · APK disponible en GitHub Releases · No publicada en Play Store.</strong>
+      La app usa Firebase Firestore y Authentication en el plan gratuito — puede tener límites de requests en uso intensivo.
+    </span>
+  </div>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <img src="images/radiance-app.png" alt="Radiance App Icon" class="app-icon">
+  <div class="hero-text">
+    <div class="hero-badges">
+      <span class="badge badge-android">Android</span>
+      <span class="badge badge-kotlin">Kotlin</span>
+      <span class="badge badge-firebase">Firebase</span>
+      <span class="badge badge-apk">APK</span>
+    </div>
+    <h1>✨ <span>Radiance</span></h1>
+    <p class="hero-sub">
+      App Android de indumentaria e-commerce — explorá, filtrá y comprá ropa con una experiencia de usuario moderna construida con Jetpack Compose y Material Design 3.
+    </p>
+    <div class="cta-buttons">
+      <a href="https://github.com/thestrokes1/RadianceApp/releases/latest" target="_blank" rel="noopener noreferrer" class="btn-gold">
+        ⬇ Descargar APK
+      </a>
+      <a href="https://github.com/thestrokes1/RadianceApp" target="_blank" rel="noopener noreferrer" class="btn-outline">
+        ⌨️ GitHub
+      </a>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- Pantallas -->
+  <div class="screens-section">
+    <p class="section-title">Pantallas de la app</p>
+    <div class="screens-grid">
+      <div class="screen-card">
+        <div class="screen-icon">✨</div>
+        <div class="screen-name">Splash & Onboarding</div>
+        <div class="screen-desc">Animación de entrada + 3 slides de presentación con swipe o skip</div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-icon">🔐</div>
+        <div class="screen-name">Login / Registro</div>
+        <div class="screen-desc">Email + contraseña y Google Sign-In via Firebase Auth</div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-icon">🏠</div>
+        <div class="screen-name">Home</div>
+        <div class="screen-desc">Grid de productos, filtros por categoría, sort por precio y rating, pull-to-refresh</div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-icon">👗</div>
+        <div class="screen-name">Detalle de Producto</div>
+        <div class="screen-desc">Galería de imágenes, selector de talle/color/cantidad, agregar al carrito o wishlist</div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-icon">🔍</div>
+        <div class="screen-name">Búsqueda</div>
+        <div class="screen-desc">Búsqueda en tiempo real por nombre, marca y categoría. Sugerencias recientes</div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-icon">🛒</div>
+        <div class="screen-name">Carrito</div>
+        <div class="screen-desc">Gestión de ítems, ajuste de cantidad, cálculo de subtotal, descuentos y total</div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-icon">❤️</div>
+        <div class="screen-name">Wishlist</div>
+        <div class="screen-desc">Grilla de productos guardados, agregar/quitar con un tap</div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-icon">📦</div>
+        <div class="screen-name">Checkout</div>
+        <div class="screen-desc">3 pasos: dirección de envío → resumen → confirmación con orden guardada en Firestore</div>
+      </div>
+      <div class="screen-card">
+        <div class="screen-icon">👤</div>
+        <div class="screen-name">Perfil</div>
+        <div class="screen-desc">Stats de cuenta, dark mode toggle, idioma ES/EN, configuración y logout</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Design palette -->
+  <p class="section-title">Paleta de diseño</p>
+  <div class="palette-row">
+    <div class="color-chip">
+      <div class="color-swatch" style="background:#0A0A0A;"></div>
+      <div class="color-info"><div class="color-name">Negro</div><div class="color-hex">#0A0A0A</div></div>
+    </div>
+    <div class="color-chip">
+      <div class="color-swatch" style="background:#C9A84C;"></div>
+      <div class="color-info"><div class="color-name">Dorado</div><div class="color-hex">#C9A84C</div></div>
+    </div>
+    <div class="color-chip">
+      <div class="color-swatch" style="background:#1A1A1A; border:1px solid #333;"></div>
+      <div class="color-info"><div class="color-name">Gris oscuro</div><div class="color-hex">#1A1A1A</div></div>
+    </div>
+    <div class="color-chip">
+      <div class="color-swatch" style="background:#FFFFFF;"></div>
+      <div class="color-info"><div class="color-name">Blanco</div><div class="color-hex">#FFFFFF</div></div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <p class="section-title" style="margin-bottom:1rem;">Features destacadas</p>
+  <div class="features-grid">
+    <div class="feature-item">
+      <div class="icon">🔥</div>
+      <h4>Firebase completo</h4>
+      <p>Auth (email + Google), Firestore para productos/órdenes, Storage para imágenes</p>
+    </div>
+    <div class="feature-item">
+      <div class="icon">🌓</div>
+      <h4>Dark / Light mode</h4>
+      <p>Toggle en perfil, persistido con DataStore Preferences</p>
+    </div>
+    <div class="feature-item">
+      <div class="icon">🌐</div>
+      <h4>Bilingüe ES/EN</h4>
+      <p>Localización completa, idioma persistido en DataStore</p>
+    </div>
+    <div class="feature-item">
+      <div class="icon">⚡</div>
+      <h4>Skeleton loading</h4>
+      <p>Shimmer UI mientras cargan los productos — sin pantallas vacías</p>
+    </div>
+    <div class="feature-item">
+      <div class="icon">🏗️</div>
+      <h4>MVVM estricto</h4>
+      <p>ViewModels en MainActivity, StateFlow, sin LiveData, sin estados huérfanos</p>
+    </div>
+    <div class="feature-item">
+      <div class="icon">🛡️</div>
+      <h4>Fallback de datos</h4>
+      <p>Si Firestore falla, usa SampleData local — nunca pantalla vacía</p>
+    </div>
+  </div>
+
+  <!-- Tech stack -->
+  <div class="tech-section">
+    <p class="section-title">Stack técnico</p>
+    <div class="tech-tags">
+      <span class="tech-tag">Kotlin</span>
+      <span class="tech-tag">Jetpack Compose</span>
+      <span class="tech-tag">Material Design 3</span>
+      <span class="tech-tag">MVVM</span>
+      <span class="tech-tag">StateFlow</span>
+      <span class="tech-tag">Jetpack Navigation</span>
+      <span class="tech-tag">Firebase Auth</span>
+      <span class="tech-tag">Firebase Firestore</span>
+      <span class="tech-tag">Firebase Storage</span>
+      <span class="tech-tag">Google Sign-In</span>
+      <span class="tech-tag">Coil Compose</span>
+      <span class="tech-tag">Compose Shimmer</span>
+      <span class="tech-tag">DataStore Preferences</span>
+      <span class="tech-tag">Gradle Kotlin DSL</span>
+      <span class="tech-tag">Min SDK API 26</span>
+    </div>
+  </div>
+
+  <!-- Install guide -->
+  <div class="install-card">
+    <h3>📲 Cómo instalar el APK</h3>
+    <div class="install-steps">
+      <div class="install-step">
+        <div class="step-num">1</div>
+        <div class="step-text">Descargá el archivo <code>radiance-release.apk</code> desde <a href="https://github.com/thestrokes1/RadianceApp/releases" target="_blank" style="color:var(--gold);">GitHub Releases</a></div>
+      </div>
+      <div class="install-step">
+        <div class="step-num">2</div>
+        <div class="step-text">En tu Android: <strong>Ajustes → Seguridad → Instalar apps de fuentes desconocidas</strong> (o permitir desde el navegador que descargaste el APK)</div>
+      </div>
+      <div class="install-step">
+        <div class="step-num">3</div>
+        <div class="step-text">Abrí el archivo <code>.apk</code> descargado y tocá <strong>Instalar</strong></div>
+      </div>
+      <div class="install-step">
+        <div class="step-num">4</div>
+        <div class="step-text">Requiere Android <strong>8.0 o superior</strong> (API 26+) — compatible con la gran mayoría de dispositivos Android actuales</div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>Cristian Vázquez · <a href="index.html" style="color:var(--gold); text-decoration:none;">← Volver al portfolio</a></p>
+</footer>
+
+</body>
+</html>
