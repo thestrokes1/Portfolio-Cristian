@@ -73,9 +73,9 @@ items.forEach((item, index) => {
                 link: "https://equilibrium-construcion.vercel.app/"
             },
             {
-                title: "Próximo Proyecto",
-                description: "Próximamente...",
-                link: ""
+                title: "PriceHunter",
+                description: "Comparador de precios ML + Amazon + Frávega",
+                link: "price-trackers.html"
             },
             {
                 title: "Symbolic Music",
