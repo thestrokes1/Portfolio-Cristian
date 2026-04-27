@@ -468,6 +468,85 @@
         <span class="tech-tag">Render</span>
       </div>
     </div>
+
+    <!-- ── Nota personal: runner ── -->
+    <div style="
+      margin-top: 2rem;
+      background: rgba(245,158,11,0.06);
+      border: 1px solid rgba(245,158,11,0.2);
+      border-radius: 14px;
+      overflow: hidden;
+    ">
+      <button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'block' : 'none'" style="
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 1rem 1.5rem;
+        text-align: left;
+        cursor: pointer;
+        color: #fcd34d;
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      ">
+        🔧 Nota personal — GitHub Actions Runner en esta PC
+        <span style="margin-left:auto; font-size:0.7rem; opacity:0.6;">click para expandir</span>
+      </button>
+
+      <div style="display:none; padding: 0 1.5rem 1.5rem;">
+        <p style="font-size:0.85rem; color:rgba(255,220,100,0.7); margin-bottom:1.2rem; line-height:1.6;">
+          Hay un runner de GitHub Actions instalado en esta PC como tarea programada de Windows.
+          Se inicia solo al encender Windows, escucha señales de GitHub y corre el scraper cada 6h.
+          Consume ~6 MB RAM y 0% CPU cuando no está scrapeando. Archivos en <code style="background:rgba(255,255,255,0.08); padding:0.1rem 0.4rem; border-radius:4px;">D:\actions-runner</code>
+        </p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:1rem;">
+
+          <div style="background:rgba(0,0,0,0.25); border-radius:10px; padding:1rem;">
+            <p style="font-size:0.7rem; color:rgba(255,200,80,0.6); letter-spacing:1px; text-transform:uppercase; margin-bottom:0.6rem;">Ver estado</p>
+            <code style="font-size:0.78rem; color:#86efac; display:block; line-height:1.8;">
+              (Get-ScheduledTask -TaskName<br>
+              "GitHubActionsRunner-TrackPrice").State
+            </code>
+          </div>
+
+          <div style="background:rgba(0,0,0,0.25); border-radius:10px; padding:1rem;">
+            <p style="font-size:0.7rem; color:rgba(255,200,80,0.6); letter-spacing:1px; text-transform:uppercase; margin-bottom:0.6rem;">Parar</p>
+            <code style="font-size:0.78rem; color:#86efac; display:block; line-height:1.8;">
+              Stop-ScheduledTask -TaskName<br>
+              "GitHubActionsRunner-TrackPrice"
+            </code>
+          </div>
+
+          <div style="background:rgba(0,0,0,0.25); border-radius:10px; padding:1rem;">
+            <p style="font-size:0.7rem; color:rgba(255,200,80,0.6); letter-spacing:1px; text-transform:uppercase; margin-bottom:0.6rem;">Iniciar</p>
+            <code style="font-size:0.78rem; color:#86efac; display:block; line-height:1.8;">
+              Start-ScheduledTask -TaskName<br>
+              "GitHubActionsRunner-TrackPrice"
+            </code>
+          </div>
+
+          <div style="background:rgba(180,30,30,0.15); border:1px solid rgba(255,80,80,0.2); border-radius:10px; padding:1rem;">
+            <p style="font-size:0.7rem; color:rgba(255,120,120,0.8); letter-spacing:1px; text-transform:uppercase; margin-bottom:0.6rem;">Eliminar para siempre</p>
+            <code style="font-size:0.75rem; color:#fca5a5; display:block; line-height:1.9;">
+              Stop-ScheduledTask -TaskName "GitHubActionsRunner-TrackPrice"<br>
+              Unregister-ScheduledTask -TaskName "GitHubActionsRunner-TrackPrice" -Confirm:$false<br>
+              Remove-Item -Recurse -Force D:\actions-runner
+            </code>
+          </div>
+
+        </div>
+
+        <p style="font-size:0.75rem; color:rgba(255,200,80,0.4); margin-top:1rem;">
+          Todos estos comandos van en PowerShell como administrador. Ver historial de runs en
+          <a href="https://github.com/thestrokes1/trackprice/actions" target="_blank" style="color:#fcd34d;">github.com/thestrokes1/trackprice/actions</a>
+        </p>
+      </div>
+    </div>
+
   </div>
 
 </main>
