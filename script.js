@@ -53,9 +53,9 @@ items.forEach((item, index) => {
         // Image data with titles and descriptions
         const imageData = [
             {
-                title: "Mini Projects",
-                description: "Juegos, herramientas y mini proyectos web",
-                link: "subprojects.html"
+                title: "Próximamente",
+                description: "Nuevo proyecto en camino...",
+                link: null
             },
             {
                 title: "Artist Landingpage",
@@ -248,16 +248,17 @@ items.forEach((item, index) => {
         items.forEach((item, index) => {
             const img = item.querySelector('img');
             const reflection = item.querySelector('.reflection');
-            
-            img.onload = function() {
 
+            if (!img) return;
+
+            img.onload = function() {
                 this.parentElement.classList.remove('image-loading');
                 reflection.style.setProperty('--bg-image', `url(${this.src})`);
                 reflection.style.backgroundImage = `url(${this.src})`;
                 reflection.style.backgroundSize = 'cover';
                 reflection.style.backgroundPosition = 'center';
             };
-            
+
             img.onerror = function() {
                 this.parentElement.classList.add('image-loading');
             };
