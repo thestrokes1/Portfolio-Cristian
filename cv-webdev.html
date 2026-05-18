@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cristian Israel Vazquez Diaz - Web Dev CV</title>
+  <link rel="stylesheet" href="cv.css">
+  <style>
+    .proj-mini { margin-bottom: 11px; }
+    .proj-mini-name { font-weight: bold; font-size: 11.5px; margin: 0 0 3px; }
+    .proj-mini-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 3px; }
+    .proj-tag {
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      font-size: 9.5px;
+      padding: 1px 7px;
+      border-radius: 10px;
+    }
+    .proj-mini-link { font-size: 10.5px; color: rgba(255,255,255,0.75); text-decoration: underline; }
+
+    /* Spanish content is ~40px taller than English — let page grow on screen */
+    .cv-page {
+      height: auto;
+      min-height: 297mm;
+    }
+
+    /* Tighten spacing for print so Spanish fits in one A4 page */
+    @media print {
+      .cv-page { height: 297mm; min-height: 297mm; overflow: hidden; }
+      .right { padding: 25px 40px !important; }
+      .right h3 { margin-top: 20px !important; }
+      .timeline { margin-top: 10px !important; }
+      .item { margin-bottom: 15px !important; }
+      .skills-container { margin-top: 6px !important; }
+    }
+
+    @media (max-width: 900px) {
+      .cv-page {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        grid-template-columns: 1fr;
+      }
+      .lang-switcher {
+        position: static;
+        text-align: right;
+        padding: 10px 14px 0;
+        background: #e0e0e0;
+      }
+      .left { padding: 24px 20px; }
+      .right { padding: 24px 22px; }
+      header h1 { font-size: 22px; }
+      .skills-container { flex-wrap: wrap; gap: 12px; }
+      .skill-column { flex: 1 1 42%; }
+      .download { margin: 20px 0 30px; }
+    }
+
+    @media (max-width: 520px) {
+      .skill-column { flex: 1 1 100%; }
+      header h1 { font-size: 18px; }
+      header h2 { font-size: 12px; letter-spacing: 2px; }
+      .right p, .right li { font-size: 12px; }
+    }
+  </style>
+</head>
+<body class="lang-es">
+
+<div class="lang-switcher">
+  <button class="btn-lang" onclick="toggleLanguage()" id="langBtn">English Version</button>
+</div>
+
+<div class="cv-page">
+
+  <aside class="left">
+    <div class="photo">
+      <img src="images/Fotocv.png" alt="Cristian Vazquez">
+    </div>
+
+    <section>
+      <h3 data-lang="es">CONTACTO</h3>
+      <h3 data-lang="en">CONTACT</h3>
+      <p>📞 +54 9 362 4011682</p>
+      <p>✉️ cristian.isr.vazquez@gmail.com</p>
+      <p>📍 Resistencia, Chaco, Argentina</p>
+    </section>
+
+    <section>
+      <h3 data-lang="es">EDUCACIÓN</h3>
+      <h3 data-lang="en">EDUCATION</h3>
+
+      <p class="bold" data-lang="es">SECUNDARIO COMPLETO</p>
+      <p class="bold" data-lang="en">HIGH SCHOOL DIPLOMA</p>
+      <p>E.E.S Nº4 – Resistencia · 2013</p>
+
+      <br>
+
+      <p class="link">
+        <a href="https://thestrokes1.github.io/Portfolio-Cristian/certificados.html" target="_blank">
+          <span data-lang="es">Certificados Prog. Web (abrir)</span>
+          <span data-lang="en">Web Dev Certificates (open)</span>
+        </a>
+      </p>
+      <p data-lang="es">FreeCodeCamp · Informatorio Chaco</p>
+      <p data-lang="en">FreeCodeCamp · Informatorio Chaco</p>
+      <p>2023 – 2025</p>
+    </section>
+
+    <section>
+      <h3 data-lang="es">IDIOMAS</h3>
+      <h3 data-lang="en">LANGUAGES</h3>
+      <div class="lang">
+        <span data-lang="es">Inglés 90%</span>
+        <span data-lang="en">English 90%</span>
+        <div class="bar"><div style="width:90%"></div></div>
+      </div>
+      <div class="lang">
+        <span data-lang="es">Español 100%</span>
+        <span data-lang="en">Spanish 100%</span>
+        <div class="bar"><div style="width:100%"></div></div>
+      </div>
+    </section>
+
+    <section>
+      <h3 data-lang="es">PROYECTOS</h3>
+      <h3 data-lang="en">PROJECTS</h3>
+
+      <div class="proj-mini">
+        <p class="proj-mini-name">Food App</p>
+        <div class="proj-mini-tags">
+          <span class="proj-tag">React</span>
+          <span class="proj-tag">Firebase</span>
+          <span class="proj-tag">MercadoPago</span>
+        </div>
+        <a class="proj-mini-link" href="https://equilibrium-food.vercel.app/" target="_blank">↗ ver demo</a>
+      </div>
+
+      <div class="proj-mini">
+        <p class="proj-mini-name">E-Construcción</p>
+        <div class="proj-mini-tags">
+          <span class="proj-tag">React</span>
+          <span class="proj-tag">Supabase</span>
+          <span class="proj-tag">PostgreSQL</span>
+        </div>
+        <a class="proj-mini-link" href="https://equilibrium-construcion.vercel.app/" target="_blank">↗ ver demo</a>
+      </div>
+
+      <div class="proj-mini">
+        <p class="proj-mini-name">Radiance App</p>
+        <div class="proj-mini-tags">
+          <span class="proj-tag">Kotlin</span>
+          <span class="proj-tag">Jetpack</span>
+          <span class="proj-tag">Android</span>
+        </div>
+        <a class="proj-mini-link" href="https://thestrokes1.github.io/Portfolio-Cristian/radiance-app.html" target="_blank">↗ ver proyecto</a>
+      </div>
+
+      <p class="link" style="margin-top: 8px;">
+        <a href="https://thestrokes1.github.io/Portfolio-Cristian/" target="_blank">
+          <span data-lang="es">+ Portfolio completo</span>
+          <span data-lang="en">+ Full Portfolio</span>
+        </a>
+      </p>
+    </section>
+  </aside>
+
+  <main class="right">
+    <header>
+      <h1>CRISTIAN ISRAEL<br>VAZQUEZ DIAZ</h1>
+      <h2 data-lang="es">DESARROLLADOR <span>FULL STACK WEB</span></h2>
+      <h2 data-lang="en">FULL STACK <span>WEB DEVELOPER</span></h2>
+    </header>
+
+    <section>
+      <h3 data-lang="es">SOBRE MÍ</h3>
+      <h3 data-lang="en">ABOUT ME</h3>
+      <p data-lang="es">
+        Desarrollador Full Stack bilingüe (Español–Inglés) con 8+ proyectos web en producción. Construyo aplicaciones completas con React, Node.js y Python — desde el diseño de UI hasta el deploy en la nube. Orientado a entregar soluciones funcionales, código limpio y buena experiencia de usuario.
+      </p>
+      <p data-lang="en">
+        Bilingual Full Stack Web Developer (Spanish–English) with 8+ production web projects. I build end-to-end applications with React, Node.js, and Python — from UI design to cloud deployment. Focused on clean code, functional solutions, and solid user experience.
+      </p>
+    </section>
+
+    <section>
+      <h3 data-lang="es">EXPERIENCIA</h3>
+      <h3 data-lang="en">EXPERIENCE</h3>
+
+      <div class="timeline">
+
+        <div class="item">
+          <span class="dot"></span>
+          <div class="line-mask"></div>
+          <div class="content">
+            <span class="date" data-lang="es">2023 – Presente · Remoto</span>
+            <span class="date" data-lang="en">2023 – Present · Remote</span>
+            <h4 data-lang="es">DESARROLLADOR FULLSTACK (FREELANCE)</h4>
+            <h4 data-lang="en">FULLSTACK DEVELOPER (FREELANCE)</h4>
+            <h5 data-lang="es">Proyectos independientes en producción</h5>
+            <h5 data-lang="en">Independent projects in production</h5>
+            <ul data-lang="es">
+              <li>8+ aplicaciones web fullstack en producción (Vercel, Render, Railway).</li>
+              <li>Integración de pagos con MercadoPago, autenticación con Firebase y Supabase, web scraping con Python.</li>
+              <li>Stack principal: React · TypeScript · Node.js · Django · FastAPI · PostgreSQL.</li>
+            </ul>
+            <ul data-lang="en">
+              <li>8+ fullstack web apps live in production (Vercel, Render, Railway).</li>
+              <li>Payment integration (MercadoPago), auth (Firebase / Supabase), web scraping (Python).</li>
+              <li>Main stack: React · TypeScript · Node.js · Django · FastAPI · PostgreSQL.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="dot"></span>
+          <div class="line-mask"></div>
+          <div class="content">
+            <span class="date">Julio 2023 – Abril 2025 · Florida, USA (Remoto)</span>
+            <h4 data-lang="es">AGENTE BILINGÜE (FREELANCE)</h4>
+            <h4 data-lang="en">BILINGUAL AGENT (FREELANCE)</h4>
+            <h5>TURBODEBT</h5>
+            <ul data-lang="es">
+              <li>Atención al cliente bilingüe (Inglés / Español), llamadas entrantes y salientes.</li>
+              <li>Más de 200 transferencias de deuda pre-calificadas facilitadas.</li>
+            </ul>
+            <ul data-lang="en">
+              <li>Bilingual customer service (English / Spanish), inbound and outbound calls.</li>
+              <li>Facilitated 200+ pre-qualified debt transfers.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="item">
+          <span class="dot"></span>
+          <div class="line-mask"></div>
+          <div class="content">
+            <span class="date" data-lang="es">Febrero 2017 – Noviembre 2023 · Chaco, Arg</span>
+            <span class="date" data-lang="en">February 2017 – November 2023 · Argentina</span>
+            <h4 data-lang="es">SOPORTE TÉCNICO</h4>
+            <h4 data-lang="en">TECHNICAL SUPPORT AGENT</h4>
+            <h5>ATENTO SRL (MOVISTAR)</h5>
+            <ul data-lang="es">
+              <li>Soporte técnico para móviles, TV cable, módems e internet. Diagnóstico y resolución de fallas.</li>
+            </ul>
+            <ul data-lang="en">
+              <li>Technical support for mobile devices, cable TV, modems, and internet. Fault diagnosis and resolution.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <h3 data-lang="es">STACK COMPLETO</h3>
+      <h3 data-lang="en">FULL STACK SKILLS</h3>
+
+      <div class="skills-container">
+
+        <div class="skill-column">
+          <h4>Frontend</h4>
+          <ul>
+            <li>React / Redux</li>
+            <li>TypeScript</li>
+            <li>JavaScript (ES6+)</li>
+            <li>HTML5 / CSS3</li>
+            <li>Bootstrap / SASS</li>
+          </ul>
+        </div>
+
+        <div class="skill-column">
+          <h4>Backend</h4>
+          <ul>
+            <li>Node.js / Express</li>
+            <li>Python / Django</li>
+            <li>FastAPI</li>
+            <li>REST APIs</li>
+            <li>Java / Kotlin</li>
+          </ul>
+        </div>
+
+        <div class="skill-column">
+          <h4 data-lang="es">Datos & Deploy</h4>
+          <h4 data-lang="en">Data & Deploy</h4>
+          <ul>
+            <li>PostgreSQL / MySQL</li>
+            <li>MongoDB / Supabase</li>
+            <li>Firebase</li>
+            <li>Git / GitHub</li>
+            <li>Vercel · Render · Railway</li>
+          </ul>
+        </div>
+
+        <div class="skill-column">
+          <h4>Mobile</h4>
+          <ul>
+            <li>Kotlin</li>
+            <li>Jetpack Compose</li>
+            <li>Android SDK</li>
+            <li>PlayStore Deploy</li>
+            <li>REST Integration</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="download">
+  <button class="download-btn" onclick="downloadPDF()">
+    <span data-lang="es">Descargar CV (PDF)</span>
+    <span data-lang="en">Download CV (PDF)</span>
+  </button>
+</div>
+
+<script>
+  function toggleLanguage() {
+    const body = document.body;
+    const btn = document.getElementById('langBtn');
+    if (body.classList.contains('lang-es')) {
+      body.classList.remove('lang-es');
+      body.classList.add('lang-en');
+      btn.innerText = 'Versión Español';
+    } else {
+      body.classList.remove('lang-en');
+      body.classList.add('lang-es');
+      btn.innerText = 'English Version';
+    }
+  }
+
+  function downloadPDF() {
+    const body = document.body;
+    const originalTitle = document.title;
+    const isEn = body.classList.contains('lang-en');
+    document.title = isEn ? "CV_Cristian_Vazquez_WebDev_EN" : "CV_Cristian_Vazquez_WebDev_ES";
+    window.print();
+    document.title = originalTitle;
+  }
+</script>
+
+</body>
+</html>
