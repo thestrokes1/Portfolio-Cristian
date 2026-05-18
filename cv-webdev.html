@@ -48,8 +48,7 @@
         margin: 0;
         box-shadow: none;
         overflow: hidden;
-        /* Scale slightly so Spanish fits in one page */
-        zoom: 0.963;
+        grid-template-columns: 38% 62%;
       }
       /* Tighten spacing to help content fit */
       .right { padding: 25px 40px !important; }
@@ -59,7 +58,7 @@
       .skills-container { margin-top: 6px !important; }
     }
 
-    @media (max-width: 900px) {
+    @media screen and (max-width: 900px) {
       .cv-page {
         width: 100%;
         height: auto;
@@ -80,7 +79,7 @@
       .download { margin: 20px 0 30px; }
     }
 
-    @media (max-width: 520px) {
+    @media screen and (max-width: 520px) {
       .skill-column { flex: 1 1 100%; }
       header h1 { font-size: 18px; }
       header h2 { font-size: 12px; letter-spacing: 2px; }
