@@ -25,9 +25,33 @@
       min-height: 297mm;
     }
 
-    /* Tighten spacing for print so Spanish fits in one A4 page */
     @media print {
-      .cv-page { height: 297mm; min-height: 297mm; overflow: hidden; }
+      /* Remove browser default margins/headers/footers */
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+      html, body {
+        width: 210mm;
+        height: 297mm;
+        background: #fff;
+      }
+      /* Preserve sidebar gradient and tag colors */
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .cv-page {
+        width: 210mm;
+        height: 297mm;
+        min-height: unset;
+        margin: 0;
+        box-shadow: none;
+        overflow: hidden;
+        /* Scale slightly so Spanish fits in one page */
+        zoom: 0.963;
+      }
+      /* Tighten spacing to help content fit */
       .right { padding: 25px 40px !important; }
       .right h3 { margin-top: 20px !important; }
       .timeline { margin-top: 10px !important; }
