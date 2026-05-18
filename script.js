@@ -53,9 +53,9 @@ items.forEach((item, index) => {
         // Image data with titles and descriptions
         const imageData = [
             {
-                title: "Próximamente",
-                description: "Nuevo proyecto en camino...",
-                link: null
+                title: "MundoEquil",
+                description: "Panel Ambiental en Tiempo Real",
+                link: "https://mundoequil.vercel.app/"
             },
             {
                 title: "Artist Landingpage",
