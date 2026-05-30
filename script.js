@@ -78,9 +78,9 @@ items.forEach((item, index) => {
                 link: "price-trackers.html"
             },
             {
-                title: "Symbolic Music",
-                description: "Music within Symbols",
-                link: "https://ultimate-music-orchestra.onrender.com/"
+                title: "KioskoPlus",
+                description: "Sistema de kiosko con promos, carrito y MercadoPago",
+                link: "https://kiosko-rosh.vercel.app/"
             },
             {
                 title: "Radiance App",
