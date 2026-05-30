@@ -80,7 +80,7 @@ items.forEach((item, index) => {
             {
                 title: "KioskoPlus",
                 description: "Sistema de kiosko con promos, carrito y MercadoPago",
-                link: "https://kiosko-rosh.vercel.app/"
+                link: "https://kioskorosh.vercel.app/"
             },
             {
                 title: "Radiance App",
