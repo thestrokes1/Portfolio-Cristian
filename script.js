@@ -251,6 +251,15 @@ items.forEach((item, index) => {
 
             if (!img) return;
 
+            // Blur background (all cards except Radiance)
+            if (item.dataset.index !== '6') {
+                const cover = item.querySelector('.cover');
+                const blurBg = document.createElement('div');
+                blurBg.className = 'cover-blur-bg';
+                blurBg.style.backgroundImage = `url('${img.getAttribute('src')}')`;
+                cover.insertBefore(blurBg, cover.firstChild);
+            }
+
             img.onload = function() {
                 this.parentElement.classList.remove('image-loading');
                 reflection.style.setProperty('--bg-image', `url(${this.src})`);
